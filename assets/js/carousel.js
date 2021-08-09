@@ -9,7 +9,6 @@ class Carousel {
     this.interval = settings.interval;
 
     this.slidesContainer = document.querySelector('#slides');
-    this.mainContainer = document.querySelector('#main');
   }
 
   _initProps () {
@@ -27,14 +26,13 @@ class Carousel {
 
   _initControls () {
     const controls = document.createElement('div');
-    const PAUSE = `<span id="pause-btn" class="control pause">${this.isPlaying ? this.FA_PAUSE : this.FA_PLAY}</i></span>`;
-    const PREV = `<span id="prev-btn" class="control prev">${this.FA_PREV}</i></span>`;
-    const NEXT = `<span id="next-btn" class="control next">${this.FA_NEXT}</i></span>`;
+    const PAUSE = `<span id="pause-btn" class="control pause-play">${this.isPlaying ? this.FA_PAUSE : this.FA_PLAY}</span>`;
+    const PREV = `<span id="prev-btn" class="control prev">${this.FA_PREV}</span>`;
+    const NEXT = `<span id="next-btn" class="control next">${this.FA_NEXT}</span>`;
 
     controls.setAttribute('class', 'controls');
     controls.innerHTML = PAUSE + PREV + NEXT;
-    // this.container.appendChild(controls);
-    this.slidesContainer.appendChild(controls);
+    this.slidesContainer.append(controls);
 
     this.pauseBtn = this.container.querySelector('#pause-btn');
     this.prevBtn = this.container.querySelector('#prev-btn');
@@ -56,7 +54,6 @@ class Carousel {
       indicators.appendChild(indicator);
     };
 
-    // this.container.appendChild(indicators);
     this.slidesContainer.appendChild(indicators);
 
     this.indContainer = this.container.querySelector('.indicators');
@@ -69,8 +66,6 @@ class Carousel {
     this.prevBtn.addEventListener('click', this.prev.bind(this));
     this.nextBtn.addEventListener('click', this.next.bind(this));
     this.indContainer.addEventListener('click', this._indicate.bind(this));
-    this.container.addEventListener('mouseenter', this._pause.bind(this));
-    this.container.addEventListener('mouseleave', this._play.bind(this));
   }
 
   _goToNth(n) {
@@ -105,20 +100,6 @@ class Carousel {
     }
   }
 
-  pausePlay () {
-    this.isPlaying ? this._pause() : this._play()
-  }
-
-  next() {
-    this._pause();
-    this._goToNext();
-  }
-
-  prev() {
-    this._pause();
-    this._goToPrev();
-  }
-
   _indicate (e) {
     const target = e.target
 
@@ -132,6 +113,20 @@ class Carousel {
     if (e.code === this.CODE_LEFT_ARROW) this.prev();
     if (e.code === this.CODE_RIGHT_ARROW) this.next();
     if (e.code === this.CODE_SPACE) this.pausePlay();
+  }
+
+  pausePlay () {
+    this.isPlaying ? this._pause() : this._play();
+  }
+
+  next() {
+    this._pause();
+    this._goToNext();
+  }
+
+  prev() {
+    this._pause();
+    this._goToPrev();
   }
 
   init () {

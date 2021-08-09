@@ -1,3 +1,10 @@
+/* ul */
+/* xl */
+/* lg */
+/* md */
+/* sm */
+/* xs */
+/* xx */
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -29,8 +36,6 @@ body {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 20px;
-  grid-template-columns: auto 1fr;
   padding: 0 40px;
 }
 
@@ -56,9 +61,6 @@ body {
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-}
-.header-navbar__item {
-  margin-left: 20px;
 }
 .header-navbar__link {
   position: relative;
@@ -104,10 +106,8 @@ body {
 }
 
 .container {
-  position: absolute;
-  top: 20%;
-  left: 40px;
   max-width: 500px;
+  padding-top: 90px;
 }
 
 .white {
@@ -133,12 +133,6 @@ body {
 .slide__title, .slide__subtitle {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   margin: 20px 0;
-}
-.slide__title {
-  font-size: 1.5em;
-}
-.slide__subtitle {
-  font-size: 0.7em;
 }
 .slide__actions {
   position: absolute;
@@ -183,10 +177,6 @@ body {
   z-index: 2;
 }
 
-/*
-non-essential styles:
-just for appearance; change whatever you want
-*/
 .slide {
   padding: 40px;
   -webkit-box-sizing: border-box;
@@ -258,9 +248,6 @@ just for appearance; change whatever you want
 .control:hover, .control:focus {
   color: white;
 }
-.control i {
-  font-size: 3rem;
-}
 
 .prev {
   top: 50%;
@@ -269,6 +256,7 @@ just for appearance; change whatever you want
       -ms-transform: translate(0, -50%);
           transform: translate(0, -50%);
   padding-left: 10px;
+  font-size: 3rem;
 }
 
 .next {
@@ -278,10 +266,20 @@ just for appearance; change whatever you want
       -ms-transform: translate(0, -50%);
           transform: translate(0, -50%);
   padding-right: 10px;
+  font-size: 3rem;
 }
 
-.pause {
-  display: none;
+.pause-play {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: transparent;
+  -webkit-transition: 3s;
+  -o-transition: 3s;
+  transition: 3s;
+  font-size: 30vh;
 }
 
 .indicator {
@@ -341,4 +339,93 @@ just for appearance; change whatever you want
 }
 .footer__icons a:hover, .footer__icons a:focus {
   color: brown;
+}
+@media (min-width: 576px) {
+  .header-menu__container {
+    gap: 20px;
+    grid-template-columns: auto 1fr;
+  }
+  .header-navbar__item {
+    margin-left: 20px;
+  }
+}
+@media (min-width: 992px) {
+  .slide__title {
+    font-size: 1.5em;
+  }
+  .slide__subtitle {
+    font-size: 0.7em;
+  }
+}
+@media (max-width: 991.8px) and (min-width: 768px) {
+  .slide__title {
+    font-size: 1.25em;
+  }
+  .slide__subtitle {
+    font-size: 0.7em;
+  }
+}
+@media (max-width: 767.8px) {
+  .slide {
+    padding: 20px;
+  }
+}
+@media (max-width: 767.8px) and (min-width: 445px) {
+  .slide:nth-of-type(2) {
+    background-position: -500px;
+  }
+  .slide:nth-of-type(3) {
+    background-position: -500px;
+  }
+  .slide:nth-of-type(5) {
+    background-position: -500px;
+  }
+}
+@media (max-width: 767.8px) and (min-width: 576px) {
+  .container {
+    text-align: center;
+    padding-top: 95px;
+  }
+  .slide__title {
+    font-size: 1em;
+  }
+  .slide__subtitle {
+    font-size: 0.6em;
+  }
+}
+@media (max-width: 575.8px) {
+  .header-logo {
+    text-align: center;
+  }
+  .header-navbar__list {
+    padding: 0;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .header-navbar__link {
+    padding: 10px 10px;
+  }
+  .container {
+    text-align: center;
+    padding-top: 95px;
+  }
+  .slide__title {
+    font-size: 0.7em;
+  }
+  .slide__subtitle {
+    font-size: 0.55em;
+  }
+}
+@media (max-width: 444.8px) {
+  .slide:nth-of-type(2) {
+    background-position: -600px;
+  }
+  .slide:nth-of-type(3) {
+    background-position: -600px;
+  }
+  .slide:nth-of-type(5) {
+    background-position: -600px;
+  }
 }
