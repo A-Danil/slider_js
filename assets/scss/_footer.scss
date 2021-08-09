@@ -1,0 +1,36 @@
+.footer {
+  min-height: 100px;
+  padding: 20px 0;
+
+  &::before {
+    position: absolute;
+    border-top: 2px solid black;
+    content: "";
+    width: 100%;
+  }
+
+  &__contacts {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+  }
+
+  &__icons {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    & a {
+      text-decoration: none;
+      color: black;
+      font-size: 2rem;
+      padding: 10px;
+      transition: 0.5s;
+
+      &:hover,
+      &:focus {
+        color: brown;
+      }
+    }
+  }
+}

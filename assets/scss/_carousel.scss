@@ -1,0 +1,240 @@
+.main {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.slides {
+  position: relative;
+  height: 600px;
+  width: 70%;
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  list-style-type: none;
+}
+
+.container {
+  max-width: 500px;
+  padding-top: 90px;
+
+  @include md-sm {
+    text-align: center;
+    padding-top: 95px;
+  }
+  @include sm {
+    text-align: center;
+    padding-top: 95px;
+  }
+}
+
+.white {
+  color: white;
+}
+
+.black {
+  color: black;
+}
+
+.slide {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 1s;
+
+  &__title,
+  &__subtitle {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    margin: 20px 0;
+  }
+
+  &__title {
+    @include lg-min {
+      font-size: 1.5em;
+    }
+    @include lg-md {
+      font-size: 1.25em;
+    }
+    @include md-sm {
+      font-size: 1em;
+    }
+    @include sm {
+      font-size: 0.7em;
+    }
+  }
+  &__subtitle {
+    @include lg-min {
+      font-size: 0.7em;
+    }
+    @include lg-md {
+      font-size: 0.7em;
+    }
+    @include md-sm {
+      font-size: 0.6em;
+    }
+    @include sm {
+      font-size: 0.55em;
+    }
+  }
+
+  &__actions {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+    min-width: 200px;
+    height: 50px;
+    font-size: 0.75em;
+    transition: 0.1s;
+
+    &:hover,
+    &:focus {
+      background-color: white;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.slide {
+  padding: 40px;
+  box-sizing: border-box;
+  background: #333;
+  font-size: 40px;
+
+  @include md {
+    padding: 20px;
+  }
+}
+
+.slide:nth-of-type(1) {
+  background: url(../img/jeans.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.slide:nth-of-type(2) {
+  background: url(../img/for_her.jpg);
+  background-position: center;
+  background-size: cover;
+
+  @include md-xs {
+    background-position: -500px;
+  }
+  @include xs {
+    background-position: -600px;
+  }
+}
+
+.slide:nth-of-type(3) {
+  background: url(../img/for_him.jpg);
+  background-position: center;
+  background-size: cover;
+
+  @include md-xs {
+    background-position: -500px;
+  }
+  @include xs {
+    background-position: -600px;
+  }
+}
+
+.slide:nth-of-type(4) {
+  background: url(../img/zara_collection.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.slide:nth-of-type(5) {
+  background: url(../img/mens_summer_collection.jpg);
+  background-position: center;
+  background-size: cover;
+
+  @include md-xs {
+    background-position: -500px;
+  }
+  @include xs {
+    background-position: -600px;
+  }
+}
+
+.indicators {
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  padding: 1em;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 2;
+}
+
+.control {
+  position: absolute;
+  z-index: 2;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.2);
+  transition: 0.5s;
+
+  &:hover,
+  &:focus {
+    color: white;
+  }
+}
+
+.prev {
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  padding-left: 10px;
+  font-size: 3rem;
+}
+
+.next {
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+  padding-right: 10px;
+  font-size: 3rem;
+}
+
+.pause-play {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: transparent;
+  transition: 3s;
+  font-size: 30vh;
+}
+
+.indicator {
+  width: 35px;
+  height: 2px;
+
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  user-select: none;
+
+  &.active {
+    background-color: white;
+  }
+}
