@@ -417,6 +417,9 @@ body {
   .slide__subtitle {
     font-size: 0.55em;
   }
+  .pause-play {
+    font-size: 15vh;
+  }
 }
 @media (max-width: 444.8px) {
   .slide:nth-of-type(2) {
