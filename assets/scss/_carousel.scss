@@ -224,6 +224,10 @@
   color: transparent;
   transition: 3s;
   font-size: 30vh;
+
+  @include sm {
+    font-size: 15vh;
+  }
 }
 
 .indicator {
